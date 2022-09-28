@@ -1,10 +1,10 @@
 budget=float(input())
 price_flour=float(input())
-price_eggs=75*0.01*price_flour
+price_egg=75*0.01*price_flour
 price_milk=125*0.01*price_flour
 eggs=made_total=0
 while budget>0:
-    loaf=price_eggs+price_flour+25*0.01*price_milk
+    loaf=price_egg+price_flour+25*0.01*price_milk
     budget-=loaf
     if budget<0:
         budget=budget+loaf
