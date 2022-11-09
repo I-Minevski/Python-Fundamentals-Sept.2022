@@ -29,12 +29,23 @@ for i in range(dragons_count):
     if "null" not in dragon_info:
         dragon = Dragon(dragon_name, int(dmg), int(hlth), int(armr))
     else:
-        if dmg == "null":
+        if dmg == "null" and hlth != "null" and armr != "null":
             dragon = Dragon(name=dragon_name, health=int(hlth), armor=int(armr))
-        if hlth == "null":
+        if hlth == "null" and dmg != "null" and armr != "null":
             dragon = Dragon(name=dragon_name, damage=int(dmg), armor=int(armr))
-        if armr == "null":
+        if armr == "null" and hlth != "null" and dmg != "null":
             dragon = Dragon(name=dragon_name, damage=int(dmg), health=int(hlth))
+        if dmg == "null" and hlth == "null" and armr != "null":
+            dragon = Dragon(name=dragon_name, armor=int(armr))
+        if dmg == "null" and hlth != "null" and armr == "null":
+            dragon = Dragon(name=dragon_name, health=int(hlth))
+        if dmg != "null" and hlth == "null" and armr == "null":
+            dragon = Dragon(name=dragon_name, damage=int(dmg))
+        if dmg == "null" and hlth == "null" and armr == "null":
+            dragon = Dragon(name=dragon_name)
+    for i in range(len(army[type])-1, -1, -1):
+        if army[type][i].get_name() == dragon.get_name():
+            del army[type][i]
     army[type].append(dragon)
 
 army_average = {}
